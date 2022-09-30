@@ -38,6 +38,13 @@ router.get("/", async (req: Request, res: Response) => {
     res.json(data);
 })
 
+router.get("/:id", async (req: Request, res: Response) => {
+    const data = await connectDB.getRepository(Footballers).findOneBy({
+        id: parseInt(req.params.id)
+    });
+    res.json(data);
+})
+
 router.put("/:id", async (req: Request, res: Response) => {
     const footballer =  await connectDB.getRepository(Footballers).findOne({where: {id: parseInt(req.params.id)}})
 
