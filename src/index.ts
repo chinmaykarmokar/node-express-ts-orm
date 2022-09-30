@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+const cors = require("cors");
 
 // Use environment variables
 import dotenv from "dotenv"
@@ -17,6 +18,7 @@ const app = express();
 
 // Parse JSON
 app.use(express.json());
+app.use(cors());
 
 // Fetching APIs from the routes
 app.use("/api/footballers", footballerRoutes);
